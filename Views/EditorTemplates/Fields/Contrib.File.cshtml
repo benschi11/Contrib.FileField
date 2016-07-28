@@ -3,14 +3,14 @@
 
 @{
 	Script.Require("jQuery").AtFoot();
-    var name = Model.Field.Name;
+    var name = Model.Field;
 }
 
 <fieldset>
-	<label for="@Html.FieldIdFor(m => "FileField-" + name)">@name.CamelFriendly()</label>
+	<label for="@Html.FieldIdFor(m => "FileField-" + name)">@Model.Field.DisplayName</label>
 	@if (!String.IsNullOrEmpty(Model.Field.Path))
     {
-	<a href="@Url.Content(Model.Field.Path)">@Model.Field.Text</a> <br/>
+	<a href="@Url.Content(Model.Field.Path)">@Model.Field.DisplayName</a> <br/>
     }
 </fieldset>
 <fieldset>
